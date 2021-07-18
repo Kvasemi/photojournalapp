@@ -6,7 +6,7 @@ import {
   LIKE,
 } from "../constants/actionTypes";
 
-import * as api from "../api";
+import * as api from "../api/index.js";
 
 export const getPosts = () => async (dispatch) => {
   try {
@@ -37,7 +37,7 @@ export const updatePost = (id, post) => async (dispatch) => {
 
 export const deletePost = (id) => async (dispatch) => {
   try {
-    await deletePost(id);
+    await api.deletePost(id);
     dispatch({ type: DELETE, payload: id });
   } catch (error) {
     console.log(error);
